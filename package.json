@@ -1,0 +1,54 @@
+{
+  "name": "@dsqr/ts-match",
+  "version": "0.0.1",
+  "description": "A lightweight, type-safe pattern matching utility for TypeScript",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "src",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/esm/*.js",
+      "types": "./dist/types/*.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "nix build && mkdir -p dist && cp -r result/* dist/",
+    "build:bun": "bun run build.ts",
+    "style:check": "prettier --check \"**/*.{ts,tsx,md,json}\" --ignore-path .gitignore",
+    "style:fix": "prettier --write \"**/*.{ts,tsx,md,json}\" --ignore-path .gitignore",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage",
+    "test:watch": "bun test --watch"
+  },
+  "keywords": [
+    "typescript",
+    "pattern-matching",
+    "functional",
+    "match",
+    "switch",
+    "type-safe"
+  ],
+  "author": "Dave Dennis <me@dsqr.dev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0xdsqr/ts-match.git"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.6.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
