@@ -19,14 +19,10 @@ function match<T extends PropertyKey>(value: T) {
 }
 
 class MatchError extends Error {
-  constructor(message: string) {
+  constructor(message: string, asserter?: Function) {
     super(message)
     this.name = "MatchError"
-
-    // Maintains proper stack trace for where our error was thrown (only available on V8)
-    if ((Error as any).captureStackTrace) {
-      ;(Error as any).captureStackTrace(this, MatchError)
-    }
+    Error.captureStackTrace?.(this, asserter || this.constructor)
   }
 }
 
