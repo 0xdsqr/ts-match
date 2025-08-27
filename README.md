@@ -9,28 +9,6 @@
 </p>
 </div>
 
-## ⇁ TOC
-* [The Problem](#-the-problem)
-* [The Solution](#-the-solution)
-* [Key Features](#-key-features)
-* [Installation](#-installation)
-* [Quick Start](#-quick-start)
-* [Development with Nix](#-development-with-nix)
-    * [Development Environment Setup](#development-environment-setup)
-    * [Testing](#testing)
-    * [Running Examples](#running-examples)
-* [Real-World Comparison](#-real-world-comparison)
-* [API Reference](#-api-reference)
-    * [Basic Pattern Matching](#basic-pattern-matching)
-    * [Default Cases and Error Handling](#default-cases-and-error-handling)
-    * [Advanced Patterns](#advanced-patterns)
-    * [Type Helpers](#type-helpers)
-* [Real-World Examples](#-real-world-examples)
-* [TypeScript Features](#-typescript-features)
-* [Contributing](#-contributing)
-* [License](#-license)
-
-<br>
 
 A lightweight, type-safe pattern matching utility for TypeScript. Transform messy `if/else` chains and verbose `switch` statements into clean, functional expressions with full type safety and exhaustiveness checking.
 
