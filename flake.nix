@@ -113,11 +113,17 @@
         apps = {
           default = {
             type = "app";
-            program = "${./.}/examples/index.ts";
+            program = "${pkgs-stable.writeShellScript "run-examples" ''
+              cd ${./.}
+              ${pkgs-unstable.bun}/bin/bun run examples/index.ts
+            ''}";
           };
           examples = {
             type = "app";
-            program = "${./.}/examples/index.ts";
+            program = "${pkgs-stable.writeShellScript "run-examples" ''
+              cd ${./.}
+              ${pkgs-unstable.bun}/bin/bun run examples/index.ts
+            ''}";
           };
         };
         
