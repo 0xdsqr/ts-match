@@ -12,5 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
-      - run: nix build .#test
-      # - run: nix flake check --all-systems --print-build-logs
+      # - run: nix build .#test
+      - run: nix flake check --all-systems --print-build-logs
+      - run: nix run

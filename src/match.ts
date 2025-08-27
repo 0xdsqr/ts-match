@@ -1,5 +1,5 @@
-export const match = <T extends PropertyKey>(value: T) => {
-  return <
+function match<T extends PropertyKey>(value: T) {
+  return function <
     P extends Record<PropertyKey, () => any> & { readonly _?: () => any },
   >(
     patterns: P,
@@ -7,7 +7,7 @@ export const match = <T extends PropertyKey>(value: T) => {
     ? R
     : P["_"] extends () => infer R
       ? R
-      : never => {
+      : never {
     const handler = patterns[value] ?? patterns._
 
     if (!handler) {
@@ -18,7 +18,7 @@ export const match = <T extends PropertyKey>(value: T) => {
   }
 }
 
-export class MatchError extends Error {
+class MatchError extends Error {
   constructor(message: string) {
     super(message)
     this.name = "MatchError"
@@ -30,7 +30,11 @@ export class MatchError extends Error {
   }
 }
 
-export type Pattern<T extends PropertyKey, R> = Record<T, () => R> & {
+type Pattern<T extends PropertyKey, R> = Record<T, () => R> & {
   readonly _?: () => R
 }
-export type Matcher<T extends PropertyKey> = <R>(patterns: Pattern<T, R>) => R
+
+type Matcher<T extends PropertyKey> = <R>(patterns: Pattern<T, R>) => R
+
+export { match, MatchError }
+export type { Pattern, Matcher }
